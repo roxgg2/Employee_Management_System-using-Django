@@ -1,0 +1,23 @@
+<!-- home.html -->
+<table border="1">
+    <tr>
+        <th>Rno</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>Delete</th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{ d.rno }}</td>
+        <td>{{ d.name }}</td>
+        <td>{{ d.marks }}</td>
+        <td>
+            <a href="{% url 'remove' id=d.rno %}" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No Data Found</td>
+    </tr>
+    {% endfor %}
+</table>

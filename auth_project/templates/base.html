@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Rohit</title>
+<style>
+    *{font-size:40px; font-family:Comic Sans Ms;}
+    .nav {background-color:black;}
+    .nav a {color:white; text-decoration:none; margin:6%;}
+</style>
+</head>
+<center>
+<div class="nav">
+    {% if user.is_authenticated %}
+        <a href="{% url 'ulogout' %}">Logout</a>
+        <a href="{% url 'ucp' %}">ChangePassword</a>
+    {% else %}
+    <a href="{% url 'ulogin' %}">Login</a>
+    <a href="{% url 'usignup' %}">SignUp</a>
+    {% endif %}
+</div>
+{% block content %}
+{% endblock%}
+</center>
+</body>
+</html>
